@@ -1,0 +1,57 @@
+import random
+
+# Initial scores
+comp_score = 0
+
+# Function to find the winner of the game
+def know_winner(user_choice, comp_choice):
+    if user_choice == comp_choice:
+        return "It's a tie!"
+    elif (
+        (user_choice == "rock" and comp_choice == "scissors") or
+        (user_choice == "scissors" and comp_choice == "paper") or
+        (user_choice == "paper" and comp_choice == "rock")
+    ):
+        return f"You won!,{user_name}"
+    else:
+        return "computer wins!"
+
+# Get user's name
+user_name = input("Enter your name: ")
+print(f"Hello, {user_name}!")
+
+# Ask if the user knows the game
+knows_game = input(f"Do you know how to play Rock, Paper, Scissors? (yes/no): ")
+
+if knows_game != "yes":
+    print("Okay, maybe next time!")
+else:
+    while True:
+        print("Come on let's play")
+        # It Takes user's choice
+        user_choice = input("\nChoose rock, paper, or scissors: ")
+
+        # It Gives computer's choice
+        choices = ["rock", "paper", "scissors"]
+        comp_choice = random.choice(choices)
+
+        # It Finds the winner and display the result
+        result = know_winner(user_choice, comp_choice)
+        print(f"\n{user_name} choosed {user_choice}.")
+        print(f"computer choosed {comp_choice}.")
+        print(f"{result}")
+
+        # scores will be updated
+        if result == f"You won!,{user_name}":
+            user_score += 1
+        elif result == "computer wins!":
+            comp_score += 1
+
+        # Display scores
+        print(f"Score - {user_name}: {user_score} , computer: {comp_score}")
+
+        # It Asks the user if wants to play again
+        play_again = input("Play again? (yes/no): ")
+        if play_again!= "yes":
+            print("Thanks for playing!")
+            break
