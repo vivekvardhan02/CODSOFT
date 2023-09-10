@@ -1,12 +1,12 @@
 contact_details = []
 
 while True:
-    print("\nWelcome to Contact Management System [C.M.S]")
-    print("1. Add Contact")
-    print("2. See Contact List")
-    print("3. Search Contact")
-    print("4. Edit Contact")
-    print("5. Delete Contact")
+    print("\nWelcome to Contact Book")
+    print("1. Add a Contact")
+    print("2. See the Contact List")
+    print("3. Search a Contact")
+    print("4. Edit a Contact")
+    print("5. Delete a Contact")
     print("6. Exit")
 
     Select = input("Enter your choice (1-6): ")
@@ -56,10 +56,10 @@ while True:
             print("Contact not found.")
 
     elif Select == '5':
-        search_term = input("Enter phone number or name  to search for the contact to delete: ")
+        search = input("Enter phone number or name  to search for the contact to delete: ")
         found = False
         for contact in contact_details:
-            if search_term in contact['Name'] or search_term in contact['Phone']:
+            if search in contact['Name'] or search['Phone']:
                 contact_details.remove(contact)
                 print("Contact deleted successfully!")
                 found = True
